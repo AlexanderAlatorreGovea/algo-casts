@@ -15,23 +15,23 @@
 //       '#####' 3/2 = 1.5 + 3 = 4.5
 
 //1. you need to find the midpoint
-//2. once you find the midpoint there are two options: 
+//2. once you find the midpoint there are two options:
 //  a). We need to add a # based on that midpoint
-//      a1). if the midpoint is  
+//      a1). if the midpoint is
 
 function pyramid(n) {
-    const midpoint = Math.round((n / 2) + n);
+    const midPoint = Math.floor((n * 2 - 1) / 2);
     for(let row = 0; row < n; row++) {
-        let stair = '';
-        for(let column = 0; column < midpoint; column++) {
-            if(column >= midpoint && column <= midpoint) {
-                stair += '#'
-            } else {
-                stair += ' '
-            }
+        let level = '';
+        for(let column = 0; column < n * 2 - 1; column++) {
+            if(midPoint - row <= column && midPoint + row >= column) {
+                level += '#'
+              } else {
+                level += ' '
+              }
         }
-        console.log(stair)
-      }
+        console.log(level)
+    }
 }
 
 module.exports = pyramid;
