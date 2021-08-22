@@ -20,18 +20,33 @@
 //      a1). if the midpoint is
 
 function pyramid(n) {
-    const midPoint = Math.floor((n * 2 - 1) / 2);
+    const midPoint = Math.floor((n * 2 - 1) / 2)
+
     for(let row = 0; row < n; row++) {
         let level = '';
-        for(let column = 0; column < n * 2 - 1; column++) {
+
+        for(let column = 0; column < (n * 2 - 1); column++ ) {
             if(midPoint - row <= column && midPoint + row >= column) {
                 level += '#'
-              } else {
+            } else {
                 level += ' '
-              }
+            }
         }
         console.log(level)
     }
+
+    // const midPoint = Math.floor((n * 2 - 1) / 2);
+    // for(let row = 0; row < n; row++) {
+    //     let level = '';
+    //     for(let column = 0; column < n * 2 - 1; column++) {
+    //         if(midPoint - row <= column && midPoint + row >= column) {
+    //             level += '#'
+    //           } else {
+    //             level += ' '
+    //           }
+    //     }
+    //     console.log(level)
+    // }
 }
 
 module.exports = pyramid;

@@ -8,39 +8,39 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-//ignore space and punctuations with 
+//ignore space and punctuations with
 //word.replace(/[^\w]/g, "").toLowerCase()
 
 function objectCharacterMap(string) {
-    let obj = {};
-    const replacedStr = string.replace(/[^\w]/g, "").toLowerCase();
-    
-    for(let char of replacedStr) {
-        if(!obj[char]) {
-            obj[char] = 1
-        } else {
-            obj[char]++
-        }
-    }
+  let obj = {};
+  const replacedStr = string.replace(/[^\w]/g, "").toLowerCase();
 
-    return obj
+  for (let char of replacedStr) {
+    if (!obj[char]) {
+      obj[char] = 1;
+    } else {
+      obj[char]++;
+    }
+  }
+
+  return obj;
 }
 
 function anagrams(stringA, stringB) {
-    const stringOne = objectCharacterMap(stringA);
-    const stringTwo = objectCharacterMap(stringB);
+  const stringOne = objectCharacterMap(stringA);
+  const stringTwo = objectCharacterMap(stringB);
 
-    if(Object.keys(stringOne).length !== Object.keys(stringTwo).length) {
-        return false
-    }
- 
-    for(let char in stringOne) {
-        if(stringOne[char] === stringTwo[char]) {
-            return true
-        }
-    }
+  if (Object.keys(stringOne).length !== Object.keys(stringTwo).length) {
+    return false;
+  }
 
-    return false
+  for (let char in stringOne) {
+    if (stringOne[char] === stringTwo[char]) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 module.exports = anagrams;
