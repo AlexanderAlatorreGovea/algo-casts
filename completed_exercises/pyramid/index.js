@@ -35,7 +35,7 @@ function pyramid(n, row = 0, level = '') {
 }
 
 module.exports = pyramid;
-//
+
 // function pyramid(n) {
 //   const midpoint = Math.floor((2 * n - 1) / 2);
 //

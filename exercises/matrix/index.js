@@ -36,28 +36,13 @@ function matrix(n) {
     }
     startRow++;
 
-    // Right column
     for (let i = startRow; i <= endRow; i++) {
-      results[i][endColumn] = counter;
+      results[i][startRow] = counter;
       counter++;
     }
-    endColumn--;
-
-    //bottom row
-    for (let i = endColumn; i >= startColumn; i--) {
-      results[endRow][i] = counter;
-      counter++;
-    }
-    endRow--;
-
-    //start column
-    for(let i = endRow; i >= startRow; i--) {
-        results[i][startColumn] = counter;
-        counter++
-    }
-    startColumn++
+    startColumn--;
   }
-  return results
+  return results;
 }
 
 module.exports = matrix;
