@@ -291,28 +291,48 @@
       <form id="form" class="form">
         <div class="form-control">
           <label for="username">Username</label>
-          <input type="text" name="username" placeholder="florinpop17" id="username" />
+          <input
+            type="text"
+            name="username"
+            placeholder="florinpop17"
+            id="username"
+          />
           <i class="fas fa-check-circle"></i>
           <i class="fas fa-exclamation-circle"></i>
           <small>Error message</small>
         </div>
         <div class="form-control">
           <label for="username">Email</label>
-          <input type="email" name="email" placeholder="a@florin-pop.com" id="email" />
+          <input
+            type="email"
+            name="email"
+            placeholder="a@florin-pop.com"
+            id="email"
+          />
           <i class="fas fa-check-circle"></i>
           <i class="fas fa-exclamation-circle"></i>
           <small>Error message</small>
         </div>
         <div class="form-control">
           <label for="username">Password</label>
-          <input type="password" name="password" placeholder="Password" id="password" />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            id="password"
+          />
           <i class="fas fa-check-circle"></i>
           <i class="fas fa-exclamation-circle"></i>
           <small>Error message</small>
         </div>
         <div class="form-control">
           <label for="username">Password check</label>
-          <input type="password" name="password2" placeholder="Password two" id="password2" />
+          <input
+            type="password"
+            name="password2"
+            placeholder="Password two"
+            id="password2"
+          />
           <i class="fas fa-check-circle"></i>
           <i class="fas fa-exclamation-circle"></i>
           <small>Error message</small>
@@ -331,7 +351,7 @@
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-     
+
       checkInputs();
     });
 
@@ -341,7 +361,7 @@
       const emailValue = email.value.trim();
       const passwordValue = password.value.trim();
       const password2Value = password2.value.trim();
-       
+
       if (usernameValue === "") {
         setErrorFor(username, "Username cannot be blank");
       } else {
@@ -380,7 +400,7 @@
     function setSuccessFor(input) {
       const formControl = input.parentElement;
       formControl.className = "form-control success";
-      input.value = ''
+      input.value = "";
     }
 
     function isEmail(email) {

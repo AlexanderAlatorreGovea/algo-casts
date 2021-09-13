@@ -37,7 +37,7 @@
           );
 
           if (!response.ok) {
-            return;
+            throw new Error("Something went wrong please try again later!");
           }
 
           const json = await response.json();
@@ -79,7 +79,7 @@
         const response = await fetch(
           "https://jsonplaceholder.typicode.com/posts",
           {
-            method: "post",
+            method: "POST",
             body: JSON.stringify({
               title: "Dylan",
               body: "Israel",
@@ -90,6 +90,10 @@
           }
         );
 
+        if (!response.ok) {
+          throw new Error("could not fetch data for that resource");
+        }
+
         const json = response.json();
 
         console.log("response: ", response);
@@ -98,23 +102,33 @@
       //postNotes()
 
       const updateNotes = async () => {
-        const response = await fetch(
-          "https://jsonplaceholder.typicode.com/posts/1",
-          {
-            method: "PUT",
-            body: JSON.stringify({
-              title: "Alexander",
-              body: "Govea",
-            }),
-            headers: {
-              "Content-type": "application/json; charset=UTF-8",
-            },
+        try {
+          const response = await fetch(
+            "https://jsonplaceholder.typicode.com/posts/1",
+            {
+              method: "PUT",
+              body: JSON.stringify({
+                title: "Alexander",
+                body: "Govea",
+              }),
+              headers: {
+                "Content-type": "application/json; charset=UTF-8",
+              },
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error(
+              "There was an error updating this resource please try again."
+            );
           }
-        );
 
-        const json = await response.json();
+          const json = await response.json();
 
-        console.log(json);
+          console.log(json);
+        } catch (error) {
+          console.log(error);
+        }
       };
 
       //updateNotes()
@@ -126,7 +140,7 @@
             {
               method: "DELETE",
             }
-          ); 
+          );
 
           console.log(response);
         } catch (error) {
